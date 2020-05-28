@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from './login/login.component';
 import Register from './register/register.component';
 import ChoiceButtons from './choiceButtons.component';
-import { postRegister } from '../../utils/axiosAPI';
+import { postRegister, postLogin } from '../../utils/axiosAPI';
 import Cookies from 'js-cookie';
 
 function LoginIndex(props) {
@@ -17,22 +17,28 @@ function LoginIndex(props) {
     }
 
     function handleRegister(data) {
-        postRegister(data.email, data.password)
-            .then(res => {
-                console.log(res);
-                console.log(res.data.data.email);
-                console.log(data.email);
+        setSelectedPage(<Register handleSubmit={handleRegister} handleClick={handleChoice} errorMessage={null}/>);
 
-                setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} />)
+        postRegister(data.email, data.password)
+            .then(() => {
+                setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} registered={true}/>)
             })
-            .catch(err => {
-                setSelectedPage(<Register handleSubmit={handleRegister} handleClick={handleChoice} errorMessage={'Email already taken'}/>);
+            .catch(() => {
+                setSelectedPage(<Register handleSubmit={handleRegister} handleClick={handleChoice} errorMessage={'Email already taken.'}/>);
             });
     }
 
     function handleLogin(data) {
-        console.log('OMEGALOGIN');
-        Cookies.set('userToken', 'wFEKbkz6wvgH5fg2dVkejSAZ');
+        setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} errorMessage={null}/>)
+        postLogin(data.email, data.password)
+            .then(res => {
+                Cookies.set('userToken', res.data.data.token);
+                localStorage.setItem("userEmail", res.data.data.email);
+                //if connected, change page state in appjs
+            })
+            .catch(() => {
+                setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} errorMessage={'Incorrect email or password.'}/>)
+            });
     }
 
     return (

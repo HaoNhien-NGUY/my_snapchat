@@ -38,7 +38,7 @@ function Register(props) {
 
         if(Object.keys(invalids).length == 0) {
             props.handleSubmit(formControl);
-            setIsInvalid(false);
+            setIsInvalid(invalids);   
         } else {
             setIsInvalid(invalids);   
         }
@@ -47,9 +47,9 @@ function Register(props) {
 
     useEffect(() => {
         if(props.errorMessage) {
-            setIsInvalid({email:true});
+            setIsInvalid({email:props.errorMessage});
         }
-    })
+    }, [props.errorMessage]);
 
     return (
         <div className="container">
@@ -59,7 +59,7 @@ function Register(props) {
                         <div className="form-group">
                             <label className="white">Email</label>
                             <input type="text" className={"form-control " + (isInvalid.email ? 'is-invalid' : '')} name="email" onChange={handleChange} />
-                            <div className="invalid-feedback">{props.errorMessage || isInvalid.email}</div>
+                            <div className="invalid-feedback">{ isInvalid.email }</div>
                         </div>
                         <div className="form-group">
                             <label className="white">Password</label>

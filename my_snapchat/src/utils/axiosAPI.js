@@ -25,3 +25,15 @@ export function postRegister(email, password) {
         }
     );
 }
+
+export function postLogin(email, password) {
+    return aio.post('/connection',
+        {
+            email,
+            password
+        },
+        {
+            headers: { 'Content-Type': 'application/json' }
+        }
+    );
+}

@@ -1,7 +1,5 @@
 import axios from 'axios';
-import authHeader from './auth-header';
-
-// const baseURL = 'http://snapi.epitech.eu/';
+import authHeader from './auth';
 
 const aio = axios.create({
     baseURL: 'http://snapi.epitech.eu/',

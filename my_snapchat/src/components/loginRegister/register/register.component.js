@@ -36,7 +36,7 @@ function Register(props) {
             invalids.cpassword = 'Password confirmation required';
         }
 
-        if(Object.keys(invalids).length == 0) {
+        if(Object.keys(invalids).length === 0) {
             props.handleSubmit(formControl);
             setIsInvalid(invalids);   
         } else {

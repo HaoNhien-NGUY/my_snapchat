@@ -1,12 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Register from './components/loginRegister/register/register.component';
 import LoginIndex from './components/loginRegister/loginIndex.component';
+import { getCurrentUser } from './utils/auth';
 
 function App() {
+  const [user, setUser] = useState(false);
+
+  function handleLogin(email) {
+    setUser(email);
+  }
+
+  useEffect(() => {
+    const currentUser = getCurrentUser();
+
+    if (currentUser) {
+      setUser(currentUser.email);
+    }
+  }, [])
+
   return (
-    <LoginIndex />
+    <div>
+      {user ? (<h1>Logged in</h1>) : (<LoginIndex handleLogin={handleLogin} />)}
+    </div>
   );
 }
 

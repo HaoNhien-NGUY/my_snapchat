@@ -32,9 +32,11 @@ function LoginIndex(props) {
         setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} errorMessage={null}/>)
         postLogin(data.email, data.password)
             .then(res => {
-                Cookies.set('userToken', res.data.data.token);
-                localStorage.setItem("userEmail", res.data.data.email);
+                Cookies.set('user', {email: res.data.data.email, token:res.data.data.token}, { expires: 7 })
+                // Cookies.set('userToken', res.data.data.token, { expires: 7 });
+                // Cookies.set('userEmail', res.data.data.email, { expires: 7 });
                 //if connected, change page state in appjs
+                props.handleLogin(res.data.data.email);
             })
             .catch(() => {
                 setSelectedPage(<Login handleSubmit={handleLogin} handleClick={handleChoice} loginEmail={data.email} errorMessage={'Incorrect email or password.'}/>)

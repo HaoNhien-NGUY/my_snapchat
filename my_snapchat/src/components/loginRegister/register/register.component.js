@@ -72,7 +72,7 @@ function Register(props) {
                             <div className="invalid-feedback">{isInvalid.cpassword}</div>
                         </div>
                         <div className="text-center mt-4">
-                            <small className="form-text text-primary">Already have an account ? <span onClick={() => props.handleClick('login')}><b><u>login</u></b></span></small>
+                            <small className="form-text text-white">Already have an account ? <span onClick={() => props.handleClick('login')}><b><u>login</u></b></span></small>
                             <button type="submit" className="btn btn-warning white mt-3">Sign up</button>
                         </div>
                     </form>

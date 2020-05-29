@@ -29,7 +29,7 @@ function Login(props) {
                             <input type="password" className="form-control" name="password" onChange={handleChange} />
                         </div>
                         <div className="text-center mt-4">
-                            <small className="form-text text-primary">Don't have an account yet ? <span onClick={() => props.handleClick('register')}><b><u>Sign up</u></b></span></small>
+                            <small className="form-text text-white">Don't have an account yet ? <span onClick={() => props.handleClick('register')}><b><u>Sign up</u></b></span></small>
                             <button type="submit" className="btn btn-warning white mt-3">Login</button>
                         </div>
                     </form>

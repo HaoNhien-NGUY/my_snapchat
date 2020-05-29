@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import LoginIndex from './components/loginRegister/loginIndex.component';
-import { getCurrentUser } from './utils/auth';
+import { getCurrentUser, deleteUserToken } from './utils/auth';
+import MainApp from './components/mainApp.component';
 
 function App() {
   const [user, setUser] = useState(false);
 
   function handleLogin(email) {
     setUser(email);
+  }
+
+  function handleLogout() {
+    setUser(false);
+    deleteUserToken();
   }
 
   useEffect(() => {
@@ -20,7 +26,7 @@ function App() {
 
   return (
     <div>
-      {user ? (<h1>Logged in</h1>) : (<LoginIndex handleLogin={handleLogin} />)}
+      {user ? <MainApp handleLogout={handleLogout} /> : (<LoginIndex handleLogin={handleLogin} />)}
     </div>
   );
 }

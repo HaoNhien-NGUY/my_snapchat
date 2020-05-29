@@ -12,26 +12,35 @@ export function getAll() {
     });
 }
 
+export function getSnaps() {
+    return aio.get('/snaps', {
+        headers: authHeader()
+    });
+}
+
+export function getSnap(id) {
+    return aio.get('/snap/'+id, {
+        headers: authHeader(),
+        responseType: 'blob'
+    });
+}
+
 export function postRegister(email, password) {
     return aio.post('/inscription',
-        {
-            email,
-            password
-        },
-        {
-            headers: { 'Content-Type': 'application/json' }
-        }
+        { email, password },
+        { headers: { 'Content-Type': 'application/json' } }
     );
 }
 
 export function postLogin(email, password) {
-    return aio.post('/connection',
-        {
-            email,
-            password
-        },
-        {
-            headers: { 'Content-Type': 'application/json' }
-        }
+    return aio.post('/connection', { email, password },
+        { headers: { 'Content-Type': 'application/json' } }
+    );
+}
+
+export function postSnap(data) {
+    return aio.post('/snap',
+        data,
+        { headers: authHeader() }
     );
 }

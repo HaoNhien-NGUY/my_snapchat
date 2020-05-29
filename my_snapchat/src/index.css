@@ -11,3 +11,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ----- css Hakim ----- */
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.labelfile {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 8px 0 8px;
+  background-color: #ffc107;
+}
+
+.labelfile:hover {
+  background-color: #e4ab00;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.labelfile:active {
+  border: 3px solid #ffc107;
+  transition-property: border;
+  transition-duration: 0.3s;
+}
+
+.sendsnap {
+  font-size: 20px;
+  color: black;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 15px;
+  background-color: rgb(32, 121, 255);
+}
+
+.sendsnap:hover {
+  background-color: rgb(31, 112, 233);
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.choiceSnap {
+  cursor: pointer;
+  font-size: 22px; 
+  padding: 7px; 
+}
+
+.apercuSnap {
+  width: 15rem;
+  display: block;
+  margin: 0 auto 50px auto;
+}
+
+#selectDuration {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 10px 0 0 10px;
+}
+
+#selectRecipient {
+  text-align: center;
+  width: 85%;
+  height: 40px;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 0 10px 10px 0;
+}

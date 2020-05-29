@@ -1,5 +1,6 @@
 body {
-  background-color: #89ddff;
+  /* background-color: #89ddff; */
+  background-color: rgb(99, 175, 219)  ;
 }
 
 /* ------- login Index ------- */
@@ -8,8 +9,8 @@ body {
   color: white;
 }
 
-.login-index .logo {
-  color: #ffa75b;
+.login-index .logo, .snaplist .logo {
+  color: #ffc107;
   position: absolute;
   left: 0;
   right: 0;
@@ -18,7 +19,7 @@ body {
   font-size: 3rem;
 }
 
-.login-index .logo img{
+.login-index .logo img, .snaplist .logo img {
   width: 5rem;
   margin: 0 auto;
   display: block;
@@ -28,6 +29,46 @@ body {
   color: white;
 }
 
+.navigation {
+  height: 60px;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  /* background-color: #ffffff; */
+  left: 0;
+  opacity: 1;
+}
+
+.navigation button {
+  flex-grow: 1;
+  border-radius: 0;
+}
+
+.snaplist {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.snaplist .list {
+  position: relative;
+  top: 40px;
+  border: solid #ffc107 1px;
+  border-radius: 10px;
+  height: 30rem;
+  max-width: 700px;
+  margin: 0 auto 0 auto;
+  overflow-y: scroll;
+}
+
+.snaplist .btn-refresh {
+  position: relative;
+  top: 55px;
+  max-width: 700px;
+  margin: 0 auto 0 auto;
+
+}
 /* .App {
   text-align: center;
 }

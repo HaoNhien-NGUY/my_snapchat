@@ -4,7 +4,6 @@ import Register from './register/register.component';
 import ChoiceButtons from './choiceButtons.component';
 import { postRegister, postLogin } from '../../utils/axiosAPI';
 import { loginUser } from '../../utils/auth';
-import Cookies from 'js-cookie';
 
 function LoginIndex(props) {
     const [selectedPage, setSelectedPage] = useState(false);

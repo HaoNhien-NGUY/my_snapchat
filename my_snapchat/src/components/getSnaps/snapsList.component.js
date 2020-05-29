@@ -17,7 +17,7 @@ function SnapsList(props) {
                 </div>
 
             </div>
-                <button className="btn btn-secondary btn-refresh">refresh</button>
+            <button className="btn btn-secondary btn-refresh" onClick={props.updateSnaps}>refresh</button>
 
         </div>
     );

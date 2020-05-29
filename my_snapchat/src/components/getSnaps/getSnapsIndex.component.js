@@ -8,29 +8,36 @@ function GetSnapsIndex(props) {
     const [snaps, setSnaps] = useState([]);
 
     function showSnap(id, from, duration) {
-        setSelectedSnap(<ShowSnap id={id} from={from} duration={duration} />);
+        setSelectedSnap(<ShowSnap id={id} from={from} duration={duration} updateSnaps={updateSnaps} />);
     }
 
     function updateSnaps() {
         getSnaps()
             .then(res => {
                 setSnaps(res.data.data);
+                setSelectedSnap(false);
             })
             .catch(err => console.log(err));
-        setSelectedSnap(false);
     }
 
     useEffect(() => {
-        getSnaps()
-            .then(res => {
-                setSnaps(res.data.data);
-            })
-            .catch(err => console.log(err));
+        function getSnapsFN() {
+            getSnaps()
+                .then(res => {
+                    setSnaps(res.data.data);
+                })
+                .catch(err => console.log(err));
+        }
+        getSnapsFN();
+        const interval = setInterval(() => {
+            getSnapsFN();
+        }, 10000);
+        return () => clearInterval(interval);
     }, []);
 
     return (
         <div>
-            {selectedSnap || <SnapsList snaps={snaps} showSnap={showSnap}/>}
+            {selectedSnap || <SnapsList snaps={snaps} showSnap={showSnap} updateSnaps={updateSnaps} />}
         </div>
     );
 }

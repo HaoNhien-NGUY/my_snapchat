@@ -19,7 +19,7 @@ export function getSnaps() {
 }
 
 export function getSnap(id) {
-    return aio.get('/snap/'+id, {
+    return aio.get('/snap/' + id, {
         headers: authHeader(),
         responseType: 'blob'
     });
@@ -41,6 +41,24 @@ export function postLogin(email, password) {
 export function postSnap(data) {
     return aio.post('/snap',
         data,
-        { headers: authHeader() }
+        {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                ...authHeader()
+            }
+        }
     );
 }
+
+export function postSeen(id) {
+    return aio.post('/seen',
+        { id },
+        {
+            headers: {
+                ...authHeader(),
+                "Content-Type": "application/json"
+            }
+        }
+    );
+}
+

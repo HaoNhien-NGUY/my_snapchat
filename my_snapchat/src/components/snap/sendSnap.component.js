@@ -20,7 +20,7 @@ function SendSnap(props) {
             'to': recipient,
             'image': props.imageFile
         }
-
+        
         postSnap(data).then(res => {
             console.log(res);
         }).catch(error => {
@@ -34,10 +34,10 @@ function SendSnap(props) {
         <div className="px-5 pt-5 test">
             <img src={url} className='apercuSnap' />
             <select id="selectDuration">
-                <option value='2'>2</option>
                 <option value='3'>3</option>
-                <option value='4'>4</option>
                 <option value='5'>5</option>
+                <option value='10'>10</option>
+                <option value='15'>15</option>
             </select>
             <select id="selectRecipient">
                 {userList.map(e => (<option key={e.email}>{e.email}</option>))}

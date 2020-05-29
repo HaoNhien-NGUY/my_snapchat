@@ -19,7 +19,7 @@ function MainApp(props) {
             <div className="navigation d-flex justify-content-between">
                 <button type="button" className="btn btn-primary btn-lg" onClick={handleSendClick}>Send</button>
                 <button type="button" className="btn btn-primary btn-lg" onClick={handleSnapsClick}>Snaps</button>
-                <button type="button" className="btn btn-warning btn-lg" onClick={props.handleLogout}>log out</button>
+                <button type="button" className="btn btn-danger btn-lg" onClick={props.handleLogout}>log out</button>
             </div>
         </div>
     );

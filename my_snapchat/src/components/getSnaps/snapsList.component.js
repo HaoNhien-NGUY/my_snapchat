@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ListItem from './listItem.component';
 
 function SnapsList(props) {
@@ -7,7 +7,7 @@ function SnapsList(props) {
     return (
         <div className="snaplist">
             <div className="logo">
-                <img src="https://cdn.frankerfacez.com/emoticon/145916/4"></img>
+                <img src="https://cdn.frankerfacez.com/emoticon/145916/4" alt="KKOMRADE"></img>
                 <h1 className="text-center">Your Snaps</h1>
             </div>
             <div className="container px-3">

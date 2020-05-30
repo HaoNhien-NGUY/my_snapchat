@@ -43,7 +43,7 @@ function LoginIndex(props) {
     return (
         <div className="login-index">
             <div className="logo">
-                <img src="https://cdn.frankerfacez.com/emoticon/145916/4"></img>
+                <img src="https://cdn.frankerfacez.com/emoticon/145916/4" alt="KKOMRADE"></img>
                 <h1 className="text-center">Our Snapchat</h1>
             </div>
             <div className="d-flex flex-column justify-content-center vh-100">

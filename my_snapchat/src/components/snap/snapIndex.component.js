@@ -4,10 +4,8 @@ import ChoiceSnap from './choiceSnap.component';
 
 function SnapIndex(props) {
     const [isCliqued, setIsCliqued] = useState(false);
-    const [myImage, setMyImage] = useState(null);
 
     function handleImg(data) {
-        setMyImage(data);
         setIsCliqued(<SendSnap handleClick={handleChoiceImg} imageFile={data} />)
     }
 
@@ -18,8 +16,8 @@ function SnapIndex(props) {
 
     return (
         <div className="login-index">
-            <div className="logo">
-                <img src="https://cdn.frankerfacez.com/emoticon/145916/4"></img>
+            <div className={"logo"}>
+                <img src="https://cdn.frankerfacez.com/emoticon/145916/4" alt="KKOMRADE"></img>
                 <h1 className="text-center">Take a Snap</h1>
             </div>
             <div className="d-flex flex-column justify-content-center vh-100">

@@ -14,41 +14,37 @@ function SendSnap(props) {
     function headersSnap() {
         let duration = document.getElementById("selectDuration").value;
         let recipient = document.getElementById("selectRecipient").value;
-        var formData = new FormData();
 
-        // const data = {
-        //     'duration': duration,
-        //     'to': recipient,
-        //     'image': props.imageFile
-        // }
+        let formData = new FormData();
         formData.set("to", recipient);
         formData.set("duration", duration);
         formData.append("image", props.imageFile);
-    
-        
-        postSnap(formData).then(res => {
-            console.log(res);
-        }).catch(error => {
-            console.log(error);
+
+        postSnap(formData).then(() => {
+            console.log('sent');
+        }).catch(() => {
+            console.log('error');
         });
 
         props.handleClick('send');
     }
 
     return (
-        <div className="px-5 pt-5 test">
-            <img src={url} className='apercuSnap' />
-            <select id="selectDuration">
-                <option value='3'>3</option>
-                <option value='5'>5</option>
-                <option value='10'>10</option>
-                <option value='15'>15</option>
-            </select>
-            <select id="selectRecipient">
-                {userList.map(e => (<option key={e.email}>{e.email}</option>))}
-            </select>
-            <button className="sendsnap" onClick={headersSnap}>Send <i className="fas fa-paper-plane"></i></button>
-            <p className="mt-5 w-100 text-center text-white" onClick={() => props.handleClick('send')}><u>Take another picture</u></p>
+        <div className="px-2 pt-0 test">
+            <img src={url} className='apercuSnap' alt="snapPreview" />
+            <div className="px-5">
+                <select id="selectDuration">
+                    <option value='3'>3</option>
+                    <option value='5'>5</option>
+                    <option value='10'>10</option>
+                    <option value='15'>15</option>
+                </select>
+                <select id="selectRecipient">
+                    {userList.map(e => (<option key={e.email}>{e.email}</option>))}
+                </select>
+                <button className="sendsnap" onClick={headersSnap}>Send <i className="fas fa-paper-plane"></i></button>
+            </div>
+            <p className="mt-3 w-100 text-center text-white" onClick={() => props.handleClick('send')}><u>Take another picture</u></p>
         </div>
     );
 }

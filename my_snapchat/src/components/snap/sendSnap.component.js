@@ -14,14 +14,19 @@ function SendSnap(props) {
     function headersSnap() {
         let duration = document.getElementById("selectDuration").value;
         let recipient = document.getElementById("selectRecipient").value;
+        var formData = new FormData();
 
-        const data = {
-            'duration': duration,
-            'to': recipient,
-            'image': props.imageFile
-        }
+        // const data = {
+        //     'duration': duration,
+        //     'to': recipient,
+        //     'image': props.imageFile
+        // }
+        formData.set("to", recipient);
+        formData.set("duration", duration);
+        formData.append("image", props.imageFile);
+    
         
-        postSnap(data).then(res => {
+        postSnap(formData).then(res => {
             console.log(res);
         }).catch(error => {
             console.log(error);

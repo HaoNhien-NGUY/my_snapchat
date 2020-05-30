@@ -13,7 +13,7 @@ function ShowSnap(props) {
                 let myImage = new Image;
                 myImage.src = URL.createObjectURL(res.data);
                 setImageData(myImage.src);
-                // postSeen(id);
+                postSeen(id);
             })
             .catch(() => {
                 setDeleted(true);

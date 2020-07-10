@@ -6,6 +6,6 @@ GitHub: https://github.com/HakimNemar
 
 # Technologies
 
--React.js
--JWT
--RESTFUL API
+- React.js
+- JWT
+- RESTFUL API
